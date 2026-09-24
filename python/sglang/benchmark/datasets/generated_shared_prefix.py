@@ -305,9 +305,9 @@ def sample_generated_shared_prefix_requests(
         if input_ids:
             turn_prompts = [system_prompt + turn_questions[0]] + turn_questions[1:]
         else:
-            turn_prompts = [
-                f"{system_prompt}\n\n{turn_questions[0]}"
-            ] + turn_questions[1:]
+            turn_prompts = [f"{system_prompt}\n\n{turn_questions[0]}"] + turn_questions[
+                1:
+            ]
         full_prompt = turn_prompts[0] if num_turns == 1 else turn_prompts
         if input_ids:
             prompt_len = len(turn_prompts[0])
@@ -331,7 +331,7 @@ def sample_generated_shared_prefix_requests(
     if not ordered:
         random.shuffle(input_requests)
 
-    print(f"\nGenerated shared prefix dataset statistics:")
+    print("\nGenerated shared prefix dataset statistics:")
     print(f"Number of groups: {num_groups}")
     print(f"Prompts per group: {prompts_per_group}")
     print(f"Number of turns: {num_turns}")
